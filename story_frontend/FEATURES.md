@@ -12,8 +12,13 @@
 - Responsive desktop and tablet layout
 
 Environment:
-- REACT_APP_API_BASE
+- REACT_APP_API_BASE (required; set to API route prefix or full URL, e.g., /api or https://api.example.com/api)
 - REACT_APP_SOCKET_URL
 - REACT_APP_SITE_URL
 
-Replace endpoint paths in src/api/endpoints.js with your backend's routes. 
+Configuration notes:
+- The frontend builds URLs as `${REACT_APP_API_BASE}/${resource}`. If your backend routes are served under a prefix (e.g., /api),
+  set REACT_APP_API_BASE to that prefix to avoid 404 errors (e.g., POST /api/sessions).
+- If your backend exposes routes at root (no prefix), set REACT_APP_API_BASE=/ to target /sessions, /auth/*, etc.
+
+Replace endpoint paths in src/api/endpoints.js with your backend's routes if they differ. 

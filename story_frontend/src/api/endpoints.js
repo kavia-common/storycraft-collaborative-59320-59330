@@ -1,6 +1,11 @@
 /**
  * High-level API wrapper. Replace paths as per backend OpenAPI once available.
  * All methods return JSON.
+ *
+ * NOTE:
+ * - All paths here are resource paths (e.g., "/sessions"). The actual base and route prefix
+ *   must be provided via REACT_APP_API_BASE (e.g., "/api" or "https://backend/app/api").
+ * - If REACT_APP_API_BASE is not set, the client defaults to "/api" to avoid 404s on common setups.
  */
 import { apiGet, apiPost, apiPut, apiDelete } from './client';
 
